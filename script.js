@@ -51,10 +51,18 @@ document.getElementById('testForm').addEventListener('submit', function(event) {
     sendDataToGoogleSheets(email, gender, age, country, totalScore);
 });
 
-function sendDataToGoogleSheets(email, gender, age, country, score) {
-    fetch('/api/send-to-google', {
+function sendDataToGoogleForms(email, gender, age, country, score) {
+    const FORM_URL = 'https://forms.gle/7xNsSegZv6NxeFRC6'; // Замените на ваш URL
+
+    fetch(FORM_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, gender, age, country, score })
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+            'entry.123456789': email, // entry.123456789 — ID поля формы
+            'entry.987654321': gender,
+            'entry.111111111': age,
+            'entry.222222222': country,
+            'entry.333333333': score
+        }).toString()
     }).then(response => console.log('Данные отправлены:', response));
 }
