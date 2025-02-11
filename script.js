@@ -52,7 +52,7 @@ document.getElementById('testForm').addEventListener('submit', function(event) {
 });
 
 function sendDataToGoogleSheets(email, gender, age, country, score) {
-    fetch('https://script.google.com/macros/s/AKfycbxvNsWQpyhvMwC_aL4Yrqgz-82bBm1yPy9ENWR_nvO5NowakmUfYaw8mPpO929rqhY3cQ/exec', {
+    fetch('https://822453f8-c4d0-4b82-89d8-dad7791f571d-00-1jt7368bcp4r5.pike.replit.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, gender, age, country, score })
